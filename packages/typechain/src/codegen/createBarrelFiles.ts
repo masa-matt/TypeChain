@@ -74,7 +74,7 @@ export function createBarrelFiles(
         const name = `${normalizeName(p)}${postfix}`
         // We can't always `export *` because of possible name conflicts.
         // @todo possibly a config option for user to decide?
-        return `${exportKeyword} { ${name} } from './${name}${moduleSuffix}';`
+        return `${exportKeyword} * as _${name} from './${name}${moduleSuffix}';`
       })
       .join('\n')
 
